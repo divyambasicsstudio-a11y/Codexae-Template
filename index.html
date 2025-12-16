@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codexae - Our Work & Next Steps</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #f8f9fa;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+            overflow: hidden;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 60px 40px;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .logo {
+            font-size: 14px;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .header h1 {
+            font-size: 38px;
+            margin-bottom: 12px;
+            color: #212529;
+            font-weight: 600;
+        }
+        
+        .header p {
+            font-size: 17px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        
+        .content {
+            padding: 50px 40px;
+        }
+        
+        .greeting {
+            font-size: 16px;
+            color: #495057;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 3px solid #212529;
+        }
+        
+        .section {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            color: #212529;
+            margin-bottom: 30px;
+            font-weight: 600;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f8f9fa;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .project-card {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            overflow: hidden;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-color: #dee2e6;
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .project-content {
+            padding: 24px;
+        }
+        
+        .project-card .category {
+            color: #6c757d;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .project-card h3 {
+            color: #212529;
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .project-card p {
+            color: #6c757d;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+        
+        .project-card .link {
+            color: #212529;
+            font-size: 14px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.3s ease;
+        }
+        
+        .project-card:hover .link {
+            gap: 10px;
+        }
+        
+        .approach-box {
+            background: #f8f9fa;
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .approach-box ul {
+            list-style: none;
+        }
+        
+        .approach-box li {
+            padding: 14px 0;
+            color: #495057;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            line-height: 1.6;
+        }
+        
+        .approach-box li::before {
+            content: '✓';
+            color: #212529;
+            background: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            border: 2px solid #212529;
+            font-size: 12px;
+        }
+        
+        .steps-box {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 30px;
+        }
+        
+        .step-item {
+            padding: 20px 0;
+            border-bottom: 1px solid #f8f9fa;
+            display: flex;
+            align-items: start;
+            gap: 20px;
+        }
+        
+        .step-item:last-child {
+            border-bottom: none;
+        }
+        
+        .step-number {
+            background: #212529;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+            font-size: 15px;
+        }
+        
+        .step-content h4 {
+            color: #212529;
+            margin-bottom: 6px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .step-content p {
+            color: #6c757d;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .delivery-box {
+            background: #f8f9fa;
+            padding: 25px 30px;
+            border-radius: 12px;
+            margin-top: 25px;
+            border-left: 3px solid #212529;
+        }
+        
+        .delivery-box strong {
+            color: #212529;
+            margin-bottom: 15px;
+            display: block;
+            font-size: 15px;
+        }
+        
+        .delivery-box ul {
+            list-style: none;
+        }
+        
+        .delivery-box li {
+            padding: 10px 0;
+            color: #495057;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .delivery-box li::before {
+            content: '→';
+            color: #212529;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .cta-section {
+            background: #f8f9fa;
+            padding: 50px 40px;
+            text-align: center;
+            margin: 60px -40px -50px -40px;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .cta-section h3 {
+            font-size: 26px;
+            margin-bottom: 12px;
+            color: #212529;
+            font-weight: 600;
+        }
+        
+        .cta-section p {
+            font-size: 16px;
+            color: #6c757d;
+            margin-bottom: 30px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            color: #495057;
+            font-weight: 500;
+        }
+        
+        .signature {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid #e9ecef;
+            font-size: 14px;
+            color: #6c757d;
+        }
+        
+        .signature strong {
+            color: #212529;
+        }
+        
+        .note {
+            background: #fff8e1;
+            border-left: 3px solid #ffc107;
+            padding: 20px 25px;
+            border-radius: 8px;
+            color: #856404;
+            margin-top: 30px;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        
+        .note strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #856404;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+            
+            .header {
+                padding: 40px 25px;
+            }
+            
+            .header h1 {
+                font-size: 30px;
+            }
+            
+            .content {
+                padding: 35px 25px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .cta-section {
+                margin: 40px -25px -35px -25px;
+                padding: 40px 25px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">CODEXAE</div>
+            <h1>Our Work & Next Steps</h1>
+            <p>Sample References for Your Project</p>
+        </div>
+        
+        <div class="content">
+            <div class="greeting">
+                Hello<br><br>
+                Thank you for choosing <strong>Codexae</strong>. We're excited to partner with you on this project. Below are live examples of websites we've crafted that showcase our expertise in clean design, user experience, and conversion optimization. These represent the quality and attention to detail you can expect.
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Our Live Projects</h2>
+                
+                <div class="projects-grid">
+                    <a href="https://voguemine.com" target="_blank" class="project-card">
+                        <div class="project-image">💎</div>
+                        <div class="project-content">
+                            <span class="category">E-Commerce</span>
+                            <h3>Vogue Mine</h3>
+                            <p>Premium jewelry e-commerce with elegant UI, smooth checkout flow, and mobile-first design.</p>
+                            <span class="link">Visit Website →</span>
+                        </div>
+                    </a>
+                    
+                    <a href="https://unmejewels.com" target="_blank" class="project-card">
+                        <div class="project-image">✨</div>
+                        <div class="project-content">
+                            <span class="category">E-Commerce</span>
+                            <h3>Unme Jewels</h3>
+                            <p>Modern jewelry store with clean layouts, optimized product pages, and seamless navigation.</p>
+                            <span class="link">Visit Website →</span>
+                        </div>
+                    </a>
+                    
+                    <a href="https://lebrra.com" target="_blank" class="project-card">
+                        <div class="project-image">👗</div>
+                        <div class="project-content">
+                            <span class="category">Fashion</span>
+                            <h3>Lebrra</h3>
+                            <p>Fashion brand website with stunning visuals, intuitive browsing, and strong CTAs.</p>
+                            <span class="link">Visit Website →</span>
+                        </div>
+                    </a>
+                    
+                    <a href="https://thakurtea.com" target="_blank" class="project-card">
+                        <div class="project-image">🍵</div>
+                        <div class="project-content">
+                            <span class="category">Food & Beverage</span>
+                            <h3>Thakur Tea</h3>
+                            <p>Tea brand website featuring rich storytelling, product showcase, and easy ordering.</p>
+                            <span class="link">Visit Website →</span>
+                        </div>
+                    </a>
+                    
+                    <a href="https://rohineya.com" target="_blank" class="project-card">
+                        <div class="project-image">🌿</div>
+                        <div class="project-content">
+                            <span class="category">E-Commerce</span>
+                            <h3>Rohineya</h3>
+                            <p>Organic products store with trust-building design and smooth user experience.</p>
+                            <span class="link">Visit Website →</span>
+                        </div>
+                    </a>
+                    
+                    <a href="https://ashokaharifood.com" target="_blank" class="project-card">
+                        <div class="project-image">🍽️</div>
+                        <div class="project-content">
+                            <span class="category">Food Industry</span>
+                            <h3>Ashoka Hari Food</h3>
+                            <p>Food business website with appetizing design, clear messaging, and strong branding.</p>
+                            <span class="link">Visit Website →</span>
+                        </div>
+                    </a>
+                    
+                    <a href="https://rmspices.com" target="_blank" class="project-card">
+                        <div class="project-image">🌶️</div>
+                        <div class="project-content">
+                            <span class="category">Food & Spices</span>
+                            <h3>RM Spices</h3>
+                            <p>Spices brand with vibrant design, product catalog, and conversion-focused layout.</p>
+                            <span class="link">Visit Website →</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="note">
+                    <strong>Note:</strong>
+                    These are live websites we've built for other clients. Your website will be uniquely designed based on your brand identity, business goals, and target audience. We don't use templates—every project is custom-crafted.
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Our Proposed Approach</h2>
+                
+                <div class="approach-box">
+                    <ul>
+                        <li>UI cleanup & modern layout improvement</li>
+                        <li>CTA optimization for better conversions</li>
+                        <li>Mobile responsiveness enhancement</li>
+                        <li>Typography & color consistency</li>
+                        <li>Smooth user flow from landing to action</li>
+                        <li>Fast loading speed optimization</li>
+                        <li>SEO-friendly structure</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Next Steps to Get Started</h2>
+                
+                <div class="steps-box">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Access & Credentials</h4>
+                            <p>Website admin or staging access (if available)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Brand Assets</h4>
+                            <p>Logo, brand colors, fonts, and any existing design guidelines</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Design Preferences</h4>
+                            <p>Any specific websites you like or design inspiration</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Scope Confirmation</h4>
+                            <p>Final confirmation on project scope and timeline</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="delivery-box">
+                    <strong>Once We Receive the Above:</strong>
+                    <ul>
+                        <li>Share wireframe / UI design plan</li>
+                        <li>Begin UI improvements & development</li>
+                        <li>Provide regular progress updates</li>
+                        <li>Deliver a high-performing, conversion-optimized website</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h3>Ready to Get Started?</h3>
+            <p>We're excited to bring your vision to life with a website that drives results.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>codexae8697@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📞</span>
+                    <span>+91 9582882927</span>
+                </div>
+            </div>
+            
+            <div class="signature">
+                <strong>Divya</strong> | IT Service Manager | Codexae
+            </div>
+        </div>
+    </div>
+</body>
+</html>
